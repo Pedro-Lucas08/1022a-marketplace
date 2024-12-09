@@ -34,10 +34,10 @@ app.post("/produtos", async (req, res) => {
             database: process.env.dbname ? process.env.dbname : "banco1022a",
             port: process.env.dbport ? parseInt(process.env.dbport) : 3306
         })
-        const {id,nome,marca,tamanho,modelo,imagem} = req.body
+        const {id,nome,tamanho,preco,imagem,marca,modelo} = req.body
         const [result, fields] = 
-                    await connection.query("INSERT INTO produtos VALUES (?,?,?,?,?,?)",
-                            [id,nome,marca,tamanho,modelo,imagem])
+                    await connection.query("INSERT INTO produtos VALUES (?,?,?,?,?,?,?)",
+                            [id,nome,tamanho,preco,imagem,marca,modelo])
         await connection.end()
         res.send(result)
     } catch (e) {
