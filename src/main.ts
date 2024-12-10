@@ -45,7 +45,7 @@ app.post("/produtos", async (req, res) => {
         res.status(500).send(e)
     }
 })
-
+//
 
 app.get("/usuarios", async (req, res) => {
     try {
